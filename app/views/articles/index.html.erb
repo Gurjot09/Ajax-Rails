@@ -1,0 +1,57 @@
+<div class="container"  style=" background: bisque;"">
+  <div class="row">
+        <div class="col-md-12">
+           <a id="modal-49795" href="#modal-container-49795" role="button" class="btn" data-toggle="modal">New Article</a>
+          
+                  <div class="modal fade" id="modal-container-49795" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                           
+                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                ×
+                              </button>
+                              <h4 class="modal-title" id="myModalLabel">
+                                Modal title
+                              </h4>
+                        </div>
+                        
+                        <div class="modal-body">
+                      
+                            <%= form_for(@article, remote: :true) do |f|%>
+                              <%=f.label :title %><br>
+                              <%=f.text_field :title , class: "form-control title"%><br>
+                              
+                              <%=f.label :content %><br>
+                              <%=f.text_field :content , class: "form-control content" %>
+                        </div>
+                        
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Close
+                          </button> 
+                          <button type="button" class="btn btn-primary">
+                             <%=f.submit "Add Post", class: "btn btn-primary" %>
+                          </button>
+                            <%end%>
+                        </div>
+                      </div>
+                      
+                    </div>
+                    
+                  </div>
+                  
+            
+  
+
+  
+                <div class= "row" id = "post_content">
+                    
+                        <%=render @articles%>    
+                </div>
+                
+
+
+        </div>
+    </div>
+</div>

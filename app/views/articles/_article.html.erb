@@ -1,0 +1,49 @@
+<div style="margin-top: 20px;" class= "col-md-4" >
+	<table class= "table">
+	  <tr>
+	    <th>Title</th>
+	    <th>Content</th>
+	  	<th><%= link_to "Destroy" , article, method: :delete, class: "btn btn-danger"%></th>
+	    <th>
+	      	<button type="button" class="btn btn-warning" data-toggle="modal" href="#update_article_<%=article.id%>">
+				Edit
+			</button>
+		</th>
+	  </tr>
+	 
+	  
+	    <tr id="article_<%=article.id%>">
+	      <td><h3><b><%= article.title %></h3></td>
+	      <td><h3><i><%= article.content %></h3></td>
+	    </tr>
+    </table>
+</div>
+
+
+<div class="modal fade" id="update_article_<%=article.id%>" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            
+            <div class="modal-body">
+                <%= form_for(article, method: :patch) do |f|%>
+                <%=f.label :title %><br>
+                <%=f.text_field :title , class: "form-control post-title"%><br>
+                <%=f.label :content %><br>
+                <%=f.text_field :content , class: "form-control post-context" %>
+                <button type="button" class="btn btn-primary"><%=f.submit "Update Post", class: "btn btn-primary" %></button>
+            </div>
+            
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> 
+                
+            </div>
+                <%end%>        
+        </div>
+    </div>
+</div>
+      
+  
